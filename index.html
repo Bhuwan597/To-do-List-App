@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List - Make your day planned</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <h1 class="text-4xl text-center mt-6 font-black">To-do list</h1>
+    <div class="h-1 bg-green-400 w-40 m-auto"></div>
+    <p class=" text-xl text-center mt-8 font-semibold"><span id="totalCount">0</span> Total, <span id="completedCount">0</span> Completed, <span id="remainingCount">0</span> Remaining</p>
+    <div class="inputContainer mt-8 flex justify-center">
+        <input
+            class="border-b-2 border-green-400 outline-none rounded-sm w-[300px] p-2 text-lg font-semibold text-center"
+            type="text" placeholder="Add your task . . . . . . ." required>
+        <button id="addTask" class="outline-none bg-green-400 p-1 text-3xl rounded-sm"><i
+                class='bx bx-sm bx-pencil'></i></button>
+    </div>
+    <div class="button-container flex justify-end items-center">
+        <button onclick="localStorage.clear();showAlert('All tasks removed!'); run()" class="mt-8 mr-6 flex justify-center items-center text-xl font-bold bg-green-400 text-white rounded p-1 outline-none">Clear All<i class='bx bx-sm bx-spreadsheet ml-2'></i></button>
+    </div>
+    <div class="flex justify-center items-center mt-8 p-3">
+        <table id="table" class="table-auto">
+            <thead>
+                <tr class="text-xl">
+                    <th>Num</th>
+                    <th>Task</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="todoList">
+            </tbody>
+        </table>
+    </div>
+    <div id="alertDiv"
+        class="bg-green-100 border border-green-400 text-black px-4 py-3 rounded w-60 absolute bottom-10 left-20 hidden"
+        role="alert">
+        <strong id="alertDivText" class="font-bold">Added Successfully !</strong>
+        <span class="absolute top-1 bottom-0 right-0 px-4 py-2">
+            <i class='bx bxs-message-square-x cursor-pointer text-xl text-green-400'
+                onclick="alertDiv.style.display='none'"></i>
+        </span>
+    </div>
+    <div id="message" class="flex justify-center items-center"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
